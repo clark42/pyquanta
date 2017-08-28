@@ -120,7 +120,10 @@ class Quanta:
         """
         payload = {"user": {"email": login, "password": password}}
         r = self._get("/users/login.json", jsonify=False)
-        self.token = str(r.json().pop("csrf_token"))
+        #self.token = str(r.json().pop("csrf_token"))
+        from pyquery import PyQuery as pq
+        q = pq(r.text)
+        self.token = q('meta[name="csrf-token"]')[0].get('content')
         self.headers['X-CSRF-Token'] = self.token
         self.cookies = r.cookies
 

@@ -14,6 +14,7 @@ class Site(BaseObject):
     ATTRS = [
         Attribute('id'),
         Attribute('name'),
+        Attribute('autoregistration_token'),
         Attribute('role', required=False),
     ]
     DICT_KEY = 'site'
