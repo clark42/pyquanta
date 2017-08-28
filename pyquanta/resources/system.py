@@ -12,8 +12,11 @@ class Server(BaseObject):
     BASE_ROUTE = '/system/servers'
     ATTRS = [
         Attribute('name'),
+        Attribute('hostname'),
+        Attribute('display_name'),
         Attribute('role'),
         Attribute('host'),
+        Attribute('monikor_active'),
         Attribute('port', default=10050),
         Attribute('enabled', default=True),
         Attribute('template', default='passive'),
